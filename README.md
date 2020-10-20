@@ -8,7 +8,7 @@
 **How can I work with the project?**
 
 -------------------------------
-Before start working with the project you should have some tools to be installed in your machine.
+Before start working with the project, you should have some tools to be installed in your machine.
 
 - Docker for window [see here](https://docs.docker.com/docker-for-windows/install/)
 - Docker for mac [see here](https://docs.docker.com/docker-for-mac/install/)
@@ -16,8 +16,7 @@ Before start working with the project you should have some tools to be installed
 - npm
 - node +12
 
-After you have installed all the tools and are ready to start, then your next step. Will be cloning the repo.
-
+Clone the repo
 ```ssh
 git clone https://github.com/OliverArthur/v-calendar-app.git
 ```
@@ -32,13 +31,13 @@ cd v-calendar-app
 docker-compose build
 ```
 
-And the build process is completed without error, then.
+After build the docker images, run this commands
 
 ```ssh
 docker-compose up
 ```
 
-If this command finish without errors you can check in the browser the api documentation.
+You can check in the browser the API documentation.
 
 ```html
 http://0.0.0.0/api/v1/docs
@@ -57,7 +56,7 @@ Inside the frontend folder run this command
 npm install
 ```
 
-After you have installed all the dependencies. Then you can run the frontend server by running this command.
+Then you can run the frontend server by running this command.
 
 ```ssh
 npm run serve
@@ -69,7 +68,7 @@ Build the to production
 npm run build
 ```
 
-Run the linter and fix anny linter errors
+Run the linter and fix anny code styles errors
 
 ```ssh
 npm run lint
@@ -81,8 +80,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 **Work with the database**
 
-I you are using docker for the backend. Work with db migrations will be more easy
-
+I you are using docker for the backend. Work with the db migrations will be more easy
 first you have to ssh into the docker container by running this command.
 
 ```ssh
