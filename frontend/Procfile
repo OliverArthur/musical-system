@@ -1,1 +1,1 @@
-web: yarn workspace v-calendar-app serve
+web: npm run serve
