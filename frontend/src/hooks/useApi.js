@@ -43,6 +43,9 @@ export default function useApi () {
     state.loading = true
     try {
       const req = await fetch(`${config.API_BASE}/api/v1/event/?page=${page}&limit=${limit}`, {
+        mode: 'cors',
+        method: 'GET',
+        referrerPolicy: 'no-referrer',
         headers: {
           'content-type': 'application/json'
         }
