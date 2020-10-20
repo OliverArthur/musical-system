@@ -42,10 +42,7 @@ export default function useApi () {
   const getAllEvents = async (page, limit) => {
     state.loading = true
     try {
-      const req = await fetch(`${config.API_BASE}/api/v1/event/?page=${page}&limit=${limit}`, {
-        mode: 'no-cors'
-      })
-      console.log(req)
+      const req = await fetch(`${config.API_BASE}/api/v1/event/?page=${page}&limit=${limit}`)
       const payload = await req.json()
       state.data = payload
       return payload
