@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import config from '@/config'
 
 export default function useApi () {
   const state = reactive({
@@ -17,7 +18,7 @@ export default function useApi () {
       description: newEvent.value.description
     }
     try {
-      const req = await fetch('api/v1/event/create', {
+      const req = await fetch(`${config.API_BASE}/api/v1/event/create`, {
         mode: 'no-cors',
         method: 'POST',
         body: JSON.stringify(event),
@@ -41,7 +42,7 @@ export default function useApi () {
   const getAllEvents = async (page, limit) => {
     state.loading = true
     try {
-      const req = await fetch(`api/v1/event/?page=${page}&limit=${limit}`)
+      const req = await fetch(`${config.API_BASE}/api/v1/event/?page=${page}&limit=${limit}`)
       const payload = await req.json()
       state.data = payload
       return payload
@@ -59,7 +60,7 @@ export default function useApi () {
     console.log(id)
     state.loading = true
     try {
-      const req = await fetch(`api/v1/event/${id}`, {
+      const req = await fetch(`${config.API_BASE}/api/v1/event/${id}`, {
         method: 'DELETE',
         headers: {
           'content-type': 'application/json'
