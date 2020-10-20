@@ -103,7 +103,6 @@ export default {
     })
 
     watch(() => state.value, () => {
-      console.log(state.value)
       return state.value
     }, { immediate: true })
 

@@ -43,7 +43,7 @@
   </aside>
 </template>
 <script>
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import useApi from '@/hooks/useApi'
 import AppForm from '@/components/form/Form'
 
@@ -55,10 +55,6 @@ export default {
     const page = ref(1)
     const limit = ref(20)
     const events = ref(state)
-
-    watch(() => events.value, () => {
-      getAllEvents(page.value, limit.value)
-    }, { immediate: true })
 
     onMounted(() => {
       getAllEvents(page.value, limit.value)
