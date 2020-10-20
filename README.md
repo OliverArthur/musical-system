@@ -105,12 +105,6 @@ alembic revision --autogenerate -m "migration message"
 alembic upgrade head
 ```
 
-If you what to run those command manually, make sure that you tell alembic where is the python script by exporting this ENV.
-
-```ssh
-export PYTHONPATH=/backend
-```
-
 Project structure
 
 - backend
