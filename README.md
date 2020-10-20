@@ -11,9 +11,7 @@
 Before start working with the project you should have some tools to be installed in your machine.
 
 - Docker for window [see here](https://docs.docker.com/docker-for-windows/install/)
-- Docker for mac [see here](hhttps://docs.docker.com/docker-for-mac/install/)
-- Poetry [see here](https://pypi.org/project/poetry/)
-- Python +3
+- Docker for mac [see here](https://docs.docker.com/docker-for-mac/install/)
 - git
 - npm
 - node +12
@@ -23,12 +21,6 @@ After you have installed all the tools and are ready to start, then your next st
 ```ssh
 git clone https://github.com/OliverArthur/v-calendar-app.git
 ```
-
-After you have cloned the repository you have to option to set-up the project,
-one is manually which can maybe a little difficult or another one using docker for
-set-up the backend.
-
-**docker set-up option**
 
 if you have installed docker in your machine, then you only have to-do:
 
@@ -44,34 +36,6 @@ And the build process is completed without error, then.
 
 ```ssh
 docker-compose up
-```
-
-If this command finish without errors you can check in the browser the api documentation.
-
-```html
-http://0.0.0.0/api/v1/docs
-```
-
-**manually set-up option**
-
-If you choose this option, you should have installed python +3 and poetry in your local machine
-
-go the backend folder
-
-```ssh
-cd v-calendar-app/backend
-```
-
-inside the backend folder, run this command.
-
-```ssh
-poetry install
-```
-
-If all the dependencies are installed, then you can run this command
-
-```ssh
-uvicorn backend.app:app --host=0.0.0.0 --port=8000
 ```
 
 If this command finish without errors you can check in the browser the api documentation.
