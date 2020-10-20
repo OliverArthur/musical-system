@@ -31,7 +31,7 @@ export default function useApi () {
       return payload
     } catch (error) {
       state.hasError = true
-      throw new Error(error)
+      throw error
     } finally {
       state.loading = false
       state.hasError = false
@@ -51,7 +51,7 @@ export default function useApi () {
     } catch (error) {
       state.hasError = true
       state.msg = error
-      throw new Error(error)
+      throw error
     } finally {
       state.loading = false
       state.hasError = false
@@ -71,7 +71,7 @@ export default function useApi () {
     } catch (error) {
       state.hasError = true
       state.msg = error
-      throw new Error(error)
+      throw error
     } finally {
       state.loading = false
       state.hasError = false
