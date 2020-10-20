@@ -17,6 +17,7 @@ uvicorn = "^0.12.1"
 gunicorn = "^20.0.4"
 alembic = "^1.4.3"
 sqlalchemy_mixins = "^1.2.1"
+setuptools = "^50.3.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
