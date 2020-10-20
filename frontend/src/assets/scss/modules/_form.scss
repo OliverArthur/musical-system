@@ -1,0 +1,113 @@
+.event-form {
+  &::after{
+    content: "";
+    background-color: #D2D2D2;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    border: 0;
+    transition: margin-left .3s cubic-bezier(.4,0,.2,1);
+    will-change: margin-left;
+  }
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    span {
+      text-transform: uppercase;
+    }
+  }
+  .app-field {
+      position: relative;
+      width: 100%;
+
+      &--input {
+        height: 3.8rem;
+        overflow: hidden;
+        input {
+          border-radius: 0;
+          border: none;
+          color: #333;
+          display: block;
+          font-size: 0.875rem;
+          padding-top: 2rem;
+          transition: .3s ease;
+          width: 100%;
+
+          &:valid {
+            ~label {
+              color: #333;
+              font: 700 0.875rem Roboto;
+              top: 0;
+            }
+          }
+          &:focus {
+            outline: none;
+            ~label {
+              color: #2196f3;
+              font: 700 0.875rem Roboto;
+              top: 0;
+            }
+            ~.bar:before {
+              transform: translateX(0);
+            }
+          }
+        }
+
+        label {
+          color: #333;
+          cursor: text;
+          font: 400 0.875rem Roboto;
+          position: absolute;
+          top: 1rem;
+          transition: .25s ease;
+        }
+      }
+
+      &--textarea {
+        height: 8rem;
+        margin-top: 1.4rem;
+
+        textarea {
+          border:1px solid #333;
+          padding: 0.2rem;
+          resize: none;
+          width: 100%;
+        }
+      }
+
+      &--radios {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        > label {
+          display: flex;
+          margin-top: 1rem;
+          width: 34.34%;
+        }
+      }
+    }
+
+    .bar {
+      background: #333;
+      content: '';
+      height: 0.0326rem;
+      position: relative;
+      transition: .3s ease;
+      width: 34rem;
+      &:before {
+        background:  #2196F3 ;
+        content: '';
+        height: 150%;
+        position: absolute;
+        transform: translateX(-100%);
+        width: 100%;
+      }
+    }
+
+    .md-card-actions button {
+      background-color:  #2196f3;
+      color: #FFF;
+    }
+}

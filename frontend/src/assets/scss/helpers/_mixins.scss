@@ -1,0 +1,50 @@
+
+///
+/// Set a rem font size with a pixel fallback for not supported * browsers
+///
+/// @example usage:
+/// h1 {
+///  @include font-size(32px)
+/// }
+/// @output
+/// h1 {
+///  font-size: 32px;
+///  font-size: 2rem;
+/// }
+///
+@mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+}
+
+
+///
+/// Simple mixin for defining breakpoints
+///
+/// @example usage:
+/// h1 {
+///  color: black;
+///  @include media(tablet) {
+///    color: red;
+///  }
+/// }
+/// @output
+/// h1 {
+///   color: black;
+/// }
+/// @media (min-width: 48rem) {
+///  h1 {
+///     color: red;
+///  }
+/// }
+///
+@mixin media($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint ) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "Can't value from `#{$breakpoint}'. "
+      + "Please make sure the value is defined in `#{breakpoints}` map.";
+  }
+}

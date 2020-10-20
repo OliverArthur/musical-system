@@ -67,25 +67,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.c-header {
-  margin-top: 1rem;
-  width: 100%;
-
-  &__inner {
-    align-content: center;
-    display: flex;
-
-    button {
-      appearance: none;
-      background-color: transparent;
-      border: none;
-    }
-
-    h2 {
-      font-weight: bold;
-    }
-  }
-}
-</style>

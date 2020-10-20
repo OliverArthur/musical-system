@@ -1,10 +1,15 @@
 <template>
-<div class="md-card">
-  <div class="md-card-area md-inset">
-    <div class="md-card-header">
-      <span class="md-title">Add new event</span>
-    </div>
-    <div class="md-card-content md-inset">
+<div class="event-form">
+  <div class="md-card-header event-form__header">
+    <span class="md-title">Add new event</span>
+    <button @click="toggleForm" class="md-button md-icon-button md-list-action">
+      <i class="material-icons md-icon-font">
+      keyboard_arrow_down
+      </i>
+    </button>
+  </div>
+  <div v-show="isOpen">
+    <div class="md-card-content">
       <form class="form">
         <div class="app-field app-field--input">
           <input
@@ -68,26 +73,27 @@
         </div>
       </form>
     </div>
-  </div>
-  <div class="md-card-actions md-alignment-right">
-    <button type="button" @click="createEvent" class="md-button md-raised md-primary">
-      <div class="md-ripple">
-        <div class="md-button-content">
-          ADD EVENT
+    <div class="md-card-actions md-alignment-right">
+      <button type="button" @click="createEvent" class="md-button md-raised md-primary">
+        <div class="md-ripple">
+          <div class="md-button-content">
+            ADD EVENT
+          </div>
         </div>
-      </div>
-    </button>
+      </button>
+    </div>
   </div>
 </div>
 </template>
 <script>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import useApi from '@/hooks/useApi'
 
 export default {
   name: 'AppForm',
   setup (props, ctx) {
-    const { addEvent } = useApi()
+    const { addEvent, state } = useApi()
+    const isOpen = ref(false)
     const event = ref({
       title: '',
       start: '',
@@ -96,110 +102,25 @@ export default {
       color: ''
     })
 
+    watch(() => state.value, () => {
+      console.log(state.value)
+      return state.value
+    }, { immediate: true })
+
     function createEvent () {
       addEvent(event)
     }
 
+    function toggleForm () {
+      isOpen.value = !isOpen.value
+    }
+
     return {
+      isOpen,
       event,
-      createEvent
+      createEvent,
+      toggleForm
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.app-field {
-  position: relative;
-  width: 100%;
-
-  &--input {
-    height: 3.8rem;
-    overflow: hidden;
-    input {
-      border-radius: 0;
-      border: none;
-      color: #333;
-      display: block;
-      font-size: 0.875rem;
-      padding-top: 2rem;
-      transition: .3s ease;
-      width: 100%;
-
-      &:valid {
-        ~label {
-          color: #333;
-          font: 700 0.875rem Roboto;
-          top: 0;
-        }
-      }
-      &:focus {
-        outline: none;
-        ~label {
-          color: #2196f3;
-          font: 700 0.875rem Roboto;
-          top: 0;
-        }
-        ~.bar:before {
-          transform: translateX(0);
-        }
-      }
-    }
-
-    label {
-      color: #333;
-      cursor: text;
-      font: 400 0.875rem Roboto;
-      position: absolute;
-      top: 1rem;
-      transition: .25s ease;
-    }
-  }
-
-  &--textarea {
-    height: 8rem;
-    margin-top: 1.4rem;
-
-    textarea {
-      border:1px solid #333;
-      padding: 0.2rem;
-      resize: none;
-      width: 100%;
-    }
-  }
-
-  &--radios {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    > label {
-      display: flex;
-      margin-top: 1rem;
-      width: 34.34%;
-    }
-  }
-}
-
-.bar {
-  background: #333;
-  content: '';
-  height: 0.0326rem;
-  position: relative;
-  transition: .3s ease;
-  width: 34rem;
-  &:before {
-    background:  #2196F3 ;
-    content: '';
-    height: 150%;
-    position: absolute;
-    transform: translateX(-100%);
-    width: 100%;
-  }
-}
-
-button {
-  background-color:  #2196f3;
-  color: #FFF;
-}
-
-</style>

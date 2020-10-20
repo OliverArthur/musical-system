@@ -37,5 +37,4 @@ class Calendar(CalendarBaseInDB):
 # Additional properties stored in DB
 class CalandarInDB(CalendarBaseInDB):
     created_at: datetime
-    slug: str
     updated_at: datetime

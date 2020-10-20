@@ -1,0 +1,11 @@
+// TEXT
+$text-base: 1rem !default;
+
+
+// MEDIA QUERY
+$breakpoints: (
+        phone: 40rem,
+        tablet: 48rem,
+        desktop: 64rem,
+        bigscreen: 80rem,
+        xbigscreen: 98rem) !default;

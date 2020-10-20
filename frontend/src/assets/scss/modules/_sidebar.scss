@@ -1,0 +1,32 @@
+.sidebar {
+    border-right: 2px solid #EEE;
+    padding: 1.4rem 1rem;
+    height: 100vh;
+    &__inner {
+      overflow-y: auto;
+      margin-bottom: 1.6rem;
+    };
+
+    h3 {
+      margin-left: 0.5rem;
+    }
+
+    .event-subheading {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    .list-divider {
+      &::after{
+        content: "";
+        background-color: #D2D2D2;
+        height: 1px;
+        margin: 0;
+        padding: 0;
+        display: block;
+        border: 0;
+        transition: margin-left .3s cubic-bezier(.4,0,.2,1);
+        will-change: margin-left;
+      }
+    }
+  }

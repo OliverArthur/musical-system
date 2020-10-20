@@ -15,6 +15,7 @@ def create(event_in: schema.CalendarIn):
         )
     return event
 
+
 def get(event_id: int):
     try:
         event = Calendar.find_or_fail(event_id)

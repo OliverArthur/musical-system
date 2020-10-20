@@ -51,26 +51,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.c-event-item {
-  cursor: pointer;
-  margin-bottom: 2px;
-  display: flex;
-  align-items: center;
-  color: #333;
-  height: 1.12rem;
-  white-space: nowrap;
-  width: 100%;
-  span {
-    display: block;
-    overflow: hidden;
-    padding:4px;
-    text-overflow: ellipsis;
-    width: 100%;
-  }
-  &.is-opacity{
-    opacity: 0;
-  }
-}
-</style>
