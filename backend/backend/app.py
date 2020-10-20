@@ -25,7 +25,7 @@ def get_application() -> FastAPI:
     if config.CORS:
         application.add_middleware(
             CORSMiddleware,
-            allow_origins=[str(origin) for origin in config.CORS],
+            allow_origins=["*"],
             allow_credentials=True,
             allow_methods=["*"],
             allow_headers=["*"],
