@@ -13,4 +13,4 @@ services:
     volumes:
       - ${PWD}/backend/:/app
     env_file:
-      - .env
+      - .env.development
