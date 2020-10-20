@@ -22,14 +22,13 @@ def get_application() -> FastAPI:
     application.include_router(api_router, prefix=config.API_PREFIX)
 
     # Set all CORS enabled origins
-    if config.CORS:
-        application.add_middleware(
-            CORSMiddleware,
-            allow_origins=["*"],
-            allow_credentials=True,
-            allow_methods=["*"],
-            allow_headers=["*"],
-        )
+    application.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     return application
 
