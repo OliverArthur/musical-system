@@ -3,6 +3,9 @@ name = "calendar"
 version = "1.0.0"
 description = ""
 authors = ["Oliver Arthur <contact@oliverarthurnardi.com>"]
+packages = [
+    { include = ["backend", "calendar"] }
+]
 
 [tool.poetry.dependencies]
 python = "^3.8"
