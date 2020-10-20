@@ -4,7 +4,8 @@ version = "1.0.0"
 description = ""
 authors = ["Oliver Arthur <contact@oliverarthurnardi.com>"]
 packages = [
-    { include = ["backend", "calendar"] }
+    { include = "backend" },
+    { include = "calendar" },
 ]
 
 [tool.poetry.dependencies]
