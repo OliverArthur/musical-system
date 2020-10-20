@@ -2,6 +2,9 @@
 
 > SPA based on Vuejs version 3. This a calendar application with a month's views.
 
+![spa calendar app](docs/screen-recording.gif)
+
+
 **How can I work with the project?**
 
 -------------------------------
