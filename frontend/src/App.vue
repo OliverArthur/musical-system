@@ -11,20 +11,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
-import moment from 'moment'
 import AppHeader from '@/components/layout/Header'
 import AppSidebar from './components/layout/Sidebar'
 import AppCalendar from '@/views/Calendar'
 export default {
   name: 'App',
-  components: { AppHeader, AppSidebar, AppCalendar },
-  setup (props, ctx) {
-    const currentMonth = ref(moment().startOf('month'))
-    return {
-      currentMonth
-    }
-  }
+  components: { AppHeader, AppSidebar, AppCalendar }
 }
 </script>
 
