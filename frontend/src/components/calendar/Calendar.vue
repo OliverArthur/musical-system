@@ -60,14 +60,8 @@
                 :first-day="firstDay"
                 v-show="event.cellIndex <= eventLimit"
                 @click="eventClick">
-                  <template v-slot:default="p">
-                    <slot name="c-event-card" :event="p.event.title"></slot>
-                  </template>
+                  {{ event.title }}
               </c-event-item>
-              <p v-if="day.events.length > eventLimit"
-                  class="more-link" @click.stop="selectThisDay(day, $event)">
-                + {{day.events[day.events.length -1].cellIndex - eventLimit}} more
-              </p>
             </div>
           </div>
         </div>
@@ -164,6 +158,7 @@ export default {
       })
 
       daysEvents.sort((a, b) => {
+        console.log(a, b)
         if (!a.cellIndex) return 1
         if (!b.cellIndex) return -1
         return a.cellIndex - b.cellIndex

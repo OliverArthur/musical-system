@@ -8,9 +8,9 @@
         <strong class="md-subheading event-subheading">
           All events
         </strong>
-        <ul class="md-list md-triple-line" v-if="events.data.length !== 0">
+        <ul class="md-list md-triple-line" v-if="events.length !== 0">
           <li
-            v-for="(event, index) in events.data"
+            v-for="(event, index) in events"
             :key="index"
             class="md-list-item list-divider">
             <div class="md-list-item-default md-list-item-container md-button-clean">
@@ -43,34 +43,22 @@
   </aside>
 </template>
 <script>
-import { onMounted, ref } from 'vue'
-import useApi from '@/hooks/useApi'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import AppForm from '@/components/form/Form'
 
 export default {
   name: 'AppSidebar',
   components: { AppForm },
   setup (props, ctx) {
-    const { getAllEvents, state, deleteOneEvent } = useApi()
-    const page = ref(1)
-    const limit = ref(20)
-    const events = ref(state)
-
-    onMounted(() => {
-      getAllEvents(page.value, limit.value)
-    })
-
-    function loadMore () {
-      getAllEvents(page.value, limit.value += 20)
-    }
+    const store = useStore()
+    const events = computed(() => store.getters['events/getEvents'])
 
     function deleteItem (evenId) {
-      deleteOneEvent(evenId)
+      store.dispatch('events/DELETE_EVENT', evenId)
     }
 
     return {
-      state,
-      loadMore,
       deleteItem,
       events
     }

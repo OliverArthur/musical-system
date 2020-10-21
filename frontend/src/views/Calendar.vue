@@ -1,10 +1,10 @@
 <template>
-  <c-calendar :events="state.data"/>
+  <c-calendar :events="events"/>
 </template>
 <script>
+import { computed, onMounted, ref } from 'vue'
+import { useStore } from 'vuex'
 import CCalendar from '@/components/calendar/Calendar'
-import useApi from '@/hooks/useApi'
-import { onMounted, ref } from 'vue'
 
 export default {
   name: 'AppCalender',
@@ -12,16 +12,21 @@ export default {
     CCalendar
   },
   setup (props, ctx) {
-    const { getAllEvents, state } = useApi()
+    const store = useStore()
     const page = ref(1)
     const limit = ref(20)
+    const events = computed(() => store.getters['events/getEvents'])
 
     onMounted(() => {
-      getAllEvents(page.value, limit.value)
+      const pages = {
+        a: page.value,
+        b: limit.value
+      }
+      store.dispatch('events/GET_EVENTS', pages)
     })
 
     return {
-      state
+      events
     }
   }
 }

@@ -86,13 +86,13 @@
 </div>
 </template>
 <script>
-import { ref, watch } from 'vue'
-import useApi from '@/hooks/useApi'
+import { ref } from 'vue'
+import { useStore } from 'vuex'
 
 export default {
   name: 'AppForm',
   setup (props, ctx) {
-    const { addEvent, state } = useApi()
+    const store = useStore()
     const isOpen = ref(false)
     const event = ref({
       title: '',
@@ -102,12 +102,8 @@ export default {
       color: ''
     })
 
-    watch(() => state.value, () => {
-      return state.value
-    }, { immediate: true })
-
     function createEvent () {
-      addEvent(event)
+      store.dispatch('events/SET_EVENT', event)
     }
 
     function toggleForm () {

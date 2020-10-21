@@ -41,7 +41,7 @@ export default {
   setup (props, ctx) {
     const title = computed(() => {
       if (!props.currentMonth) return
-      return props.currentMonth.format(config.format)
+      return props.currentMonth.locale('en').format(config.format)
     })
 
     const prevMonth = () => {
