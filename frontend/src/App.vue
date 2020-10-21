@@ -1,5 +1,5 @@
 <template>
-  <app-header :current-month="currentMonth" />
+  <app-header />
   <main class="md-app-container md-flex md-layout-row md-scrollbar">
     <app-sidebar />
     <div class="md-app-scroller md-layout-column md-flex md-scrollbar">
